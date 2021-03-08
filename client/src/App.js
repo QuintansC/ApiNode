@@ -21,7 +21,7 @@ function App () {
     const response = await fetch('/api/mensagem');
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-  
+    //guarda as informações no estado
     setNome(body.nome);
     setIdade(body.idade);
     setMessage(body.message);
@@ -37,7 +37,7 @@ async function sobre(){
   const response = await fetch('/api/mensagem', requestOptions);
   const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
-
+  //guarda as informações no estado
   setSobrenome(body.sobrenome);
   setIdade2(body.idade);
   setMessage2(body.message);
@@ -47,7 +47,7 @@ async function sobre(){
     const response = await fetch('/api/mensagem1', requestOptions);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
-  
+    //guarda as informações no estado
     setNome1(body.nome);
     setIdade1(body.idade);
     setMessage1(body.message);
@@ -62,21 +62,23 @@ async function sobre(){
   //EX: fetch('/api/mensagem'); fetch('/api/mensagem', requestOptions);;
   return (
     <div className="App">
-      <h1>Rota Get + Rota Post</h1>
-      {/*Exibindo a rota get*/}
-      {/*Os parametros das duas rotas podem ser diferentes pois há duas rotas para a mesma rota basicamente, a rota Post com seus parametros
-      e a rota Get com seus parametros que podem ser totalmente diferentes e numericamente diferentes */}
-      <p className="App-intro">Nome: {nome}// Sobrenome: {sobrenome}</p>{/*implementando a rota Post junto a get do mesmo caminho */}
-      <p className="App-intro">Idade: {idade}// Idade2 :{idade2}</p>
-      <p className="App-intro">Message: {message}// Message2: {message2}</p>
-      
+      <div>
+        <h1>Rota Get + Rota Post</h1>
+        {/*Exibindo a rota get*/}
+        {/*Os parametros das duas rotas podem ser diferentes pois há duas rotas para a mesma rota basicamente, a rota Post com seus parametros
+        e a rota Get com seus parametros que podem ser totalmente diferentes e numericamente diferentes */}
+        <p className="App-intro">Nome: {nome}// Sobrenome: {sobrenome}</p>{/*implementando a rota Post junto a get do mesmo caminho */}
+        <p className="App-intro">Idade: {idade}// Idade2 :{idade2}</p>
+        <p className="App-intro">Message: {message}// Message2: {message2}</p>
+      </div>
     <br></br>
-
-      <h1>Rota Post apenas</h1>
-      {/*Exibindo a rota post*/}
-      <p className="App-intro">Nome: {nome1}</p>
-      <p className="App-intro">Idade: {idade1}</p>
-      <p className="App-intro">Message: {message1}</p>
+      <div>
+        <h1>Rota Post apenas</h1>
+        {/*Exibindo a rota post*/}
+        <p className="App-intro">Nome: {nome1}</p>
+        <p className="App-intro">Idade: {idade1}</p>
+        <p className="App-intro">Message: {message1}</p>
+      </div>
     </div>
   );
 }
