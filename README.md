@@ -38,7 +38,7 @@ Indices da aplicação
 Tecnologias utilizadas:<br>
 
 <a href="https://google.com">![Badge](https://img.shields.io/badge/-Visual%20Studio%20Code-000000?style=for-the-badge&logo=visual-studio-code)</a>
-<a href="https://google.com">![Badge](https://img.shields.io/badge/-Node%20JS-6100FB?style=for-the-badge&logo=node)</a>
+<a href="https://google.com">![Badge](https://img.shields.io/badge/-Node%20JS-6100FB?style=for-the-badge&logo=node.js)</a>
 <a href="https://google.com">![Badge](https://img.shields.io/badge/-CSS-blue?style=for-the-badge&logo=css3)</a>
 <a href="https://google.com">![Badge](https://img.shields.io/badge/-Typescript-000000?style=for-the-badge&logo=typescript)</a>
 
@@ -52,18 +52,18 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/QuintanC/drag-and-drop>
+$ git clone <https://github.com/QuintanC/ApiNode>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd drag-and-drop
+$ cd ApiNode
 
 # Instale as dependências
 $ yarn
 
-# Execute a aplicação em modo de desenvolvimento
-$ yarn start
+# Execute a aplicação em modo de desenvolvimento, Executa o servidor e a aplicação juntos
+$ yarn dev
 
-# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000> e a aplicação Da api na porta:5000 -  acesse <http://localhost:5000>
 ```
 ## Detalhes da aplicação  
 ## `Qualquer ajuda será bem vinda!` 
