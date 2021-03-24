@@ -8,6 +8,7 @@ API em Node.JS para Tratar dados Simples
 
 ### Features
 
+- [x] Rotas simples da aplicação
 - [x] Envio de informações simples
 - [ ] Receber Informações de um form
 - [ ] Tratar essas informações
@@ -62,6 +63,9 @@ $ yarn
 
 # Execute a aplicação em modo de desenvolvimento, Executa o servidor e a aplicação juntos
 $ yarn dev
+
+# Execute apenas o servidor se não usar aplicação
+$ yarn start
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000> e a aplicação Da api na porta:5000 -  acesse <http://localhost:5000>
 ```
