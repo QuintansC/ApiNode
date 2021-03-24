@@ -68,4 +68,4 @@ $ yarn dev
 ## Detalhes da aplicação  
 ## `Qualquer ajuda será bem vinda!` 
 <br>
-Ainda em desenvolvimento, o objetivo é a organização de maneira simples onde você pode se divertir fazendo suas obrigações e ouvindo uma musica sendo extremamente produtivo.
+Objetivo dessa aplicação é servir nosso aplicativo de drag and drop em todas suas funções.

@@ -1,20 +1,21 @@
+var http = require('http'); 
 const express = require('express');
-
 const app = express();
 const port = process.env.PORT || 5000;
+const bodyParser = require('body-parser');
 
-//Rota get, rota menos segura porém mais agil pra carregar, ou seja custa menos processamento
-app.get('/api/mensagem', (req, res) => {
-  res.send({ nome: 'Gustavo', idade: '18', message:'Gustavo esta enviando esssa mensagem' });
-});
-//Rota post, rota mais segura porém demora alguns milesimos a mais pra carregar, ou seja custa mais processamento
-app.post('/api/mensagem', (req, res) => {
-  res.send({ sobrenome: 'Almeida', idade: '12', message:'Pedro enviou uma maçã' });
-});
+app.use(bodyParser.json());
+app.use(require('cors')());
 
-//Rota post, rota mais segura porém demora alguns milesimos a mais pra carregar, ou seja custa mais processamento
-app.post('/api/mensagem1', (req, res) => {
-  res.send({ nome: 'Pedro', idade: '23', message:'Pedro enviou um relatorio' });
-});
+var server = http.createServer(app);
+server.listen(port, () => console.log(`Escutando a porta ${port}`));
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+
+//Rota de login
+app.post('/api/login', (req, res, next) => {
+  console.log(req.body);
+  res.status(201).json({
+    message: 'Login enviado com sucesso!'
+  });
+});
+ 
