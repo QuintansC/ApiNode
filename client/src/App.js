@@ -3,12 +3,14 @@ import Api from './API/api';
 
 function App () {
   //Implementação do metodo post de requisição da api
-  const [user, setUser] = useState('Gustavos');
+  const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   
 
   async function login(){
+    setUser('Gustavo');
+    setPassword('123456')
     const response = await Api.post('/api/login', { user: user, password: password });
     setMessage(response.data.message)
   }
