@@ -10,6 +10,7 @@ app.use(require('cors')());
 var server = http.createServer(app);
 server.listen(port, () => console.log(`Escutando a porta ${port}`));
 
+//Colocar em typescript
 
 //Rota de login
 app.post('/api/login', (req, res, next) => {
