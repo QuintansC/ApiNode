@@ -10,9 +10,9 @@ API em Node.JS para Tratar dados Simples
 
 - [x] Rotas simples da aplicação
 - [x] Envio de informações simples
+- [x] Conectar MongoDB
 - [ ] Receber Informações de um form
 - [ ] Tratar essas informações
-- [ ] Conectar MongoDB
 
 Indices da aplicação
 =================
