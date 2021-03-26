@@ -23,17 +23,17 @@ app.post('/api/login', (req, res, next) => {
     const query = await collection.find({user: req.body.user}).toArray();
     if(query[0] !== undefined){
       if(req.body.user === query[0].user && req.body.password === query[0].password){
-        res.status(201).json({
-          message: 'Login enviado com sucesso!',
+        res.status(202).json({
+          message: true,
         });
       }else{
-        res.status(401).json({
-          message: 'Login errado',
+        res.status(406).json({
+          message: false,
         });
       }
     }else{
       res.status(401).json({
-        message: 'Usuario nao existe',
+        message: 'Usuario não existe',
       });
     }
   });
@@ -44,18 +44,21 @@ app.post('/api/cadastrar', (req, res, next) => {
   client.connect(async err => {
     const collection = client.db("kanban").collection("login");
     const query = await collection.find({user: req.body.user}).toArray();
-    if(query[0] === undefined){
-      if(req.body.user !== '' && req.body.password !== ''){
+    const queryEmail = await collection.find({email: req.body.email}).toArray();
+    if(query[0] === undefined && queryEmail[0] === undefined){
+      if(req.body.user !== '' && req.body.password !== '' && req.body.email !== ''){
         // perform actions on the collection object
         collection.insertOne({
+          email: req.body.email,
           user: req.body.user,
           password: req.body.password
         })
         res.status(201).json({
           message: 'Cadastrado com sucesso!',
         });
+        
       }else{
-        res.status(401).json({
+        res.status(406).json({
           message: 'Campos vazios nao sao permitidos',
         });
       }
