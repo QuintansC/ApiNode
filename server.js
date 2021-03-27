@@ -15,9 +15,11 @@ var server = http.createServer(app);
 server.listen(port, () => console.log(`Escutando a porta ${port}`));
 
 //Colocar em typescript
+//Adicionar JWT
 
 //Rota de login
 app.post('/api/login', (req, res, next) => {
+  //Rota de conexão para efetuar o login
   client.connect(async err => {
     const collection = client.db("kanban").collection("login");
     const query = await collection.find({user: req.body.user}).toArray();
@@ -41,6 +43,7 @@ app.post('/api/login', (req, res, next) => {
 
 
 app.post('/api/cadastrar', (req, res, next) => {
+  //Rota de conexão para efetuar o cadastro
   client.connect(async err => {
     const collection = client.db("kanban").collection("login");
     const query = await collection.find({user: req.body.user}).toArray();
