@@ -1,8 +1,12 @@
-
+//Conecta com o cliente do mongo
 const MongoClient = require('mongodb').MongoClient;
+//Define o caminho de acesso 
 const uri = "mongodb+srv://kanbanUser:25133795@cluster0.yk91m.mongodb.net/kanban?retryWrites=true&w=majority";
+//Cria o cliente ja com a conexão
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-var http = require('http'); 
+//Define o protocolo de comunicação
+var http = require('http');
+//Utiliza o express para trabalhar com as rotas 
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
