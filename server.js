@@ -1,7 +1,9 @@
+//Usa a biblioteca de criptografia padrão do node
+const crypto = require('crypto');
 //Conecta com o cliente do mongo
 const MongoClient = require('mongodb').MongoClient;
 //Define o caminho de acesso 
-const uri = "mongodb+srv://kanbanUser:25133795@cluster0.yk91m.mongodb.net/kanban?retryWrites=true&w=majority";
+const uri = "mongodb+srv://kanbanUser:8RAZ587qVUspEQpH@cluster0.yk91m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 //Cria o cliente ja com a conexão
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 //Define o protocolo de comunicação
@@ -29,8 +31,35 @@ app.post('/api/login', (req, res, next) => {
     const query = await collection.find({user: req.body.user}).toArray();
     if(query[0] !== undefined){
       if(req.body.user === query[0].user && req.body.password === query[0].password){
+        //Inicio JWT
+        const header = JSON.stringify({
+          'alg': 'HS256',
+          'typ': 'JWT'
+        });
+  
+        const payload = JSON.stringify({
+          'email': req.body.user,
+          'password': req.body.password
+        });
+  
+        const base64Header = Buffer.from(header).toString('base64').replace(/=/g, '');
+        const base64Payload = Buffer.from(payload).toString('base64').replace(/=/g, '');
+        const secret = 'hash-criptografada';
+    
+        const data = base64Header + '.' + base64Payload;
+    
+        const signature = crypto
+            .createHmac('sha256', secret)
+            .update(data)
+            .digest('base64');
+    
+        const signatureUrl = signature
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=/g, '')
+        //fim do JWT
         res.status(202).json({
-          message: true,
+          token: signatureUrl,
         });
       }else{
         res.status(406).json({
