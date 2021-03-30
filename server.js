@@ -3,7 +3,7 @@ const crypto = require('crypto');
 //Conecta com o cliente do mongo
 const MongoClient = require('mongodb').MongoClient;
 //Define o caminho de acesso 
-const uri = "mongodb+srv://kanbanUser:8RAZ587qVUspEQpH@cluster0.yk91m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = "mongodb+srv://kanbanUser:6mCHcp8BVmjZUTbj@cluster0.yk91m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 //Cria o cliente ja com a conexão
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 //Define o protocolo de comunicação
