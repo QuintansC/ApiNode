@@ -1,5 +1,3 @@
-//Usa a biblioteca de criptografia padrão do node
-const crypto = require('crypto');
 //Conecta com o cliente do mongo
 const MongoClient = require('mongodb').MongoClient;
 //Define o caminho de acesso 
@@ -14,6 +12,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 const bodyParser = require('body-parser');
 
+const autenticate = require('./functions.js');
+
 app.use(bodyParser.json());
 app.use(require('cors')());
 
@@ -21,7 +21,7 @@ var server = http.createServer(app);
 server.listen(port, () => console.log(`Escutando a porta ${port}`));
 
 //Colocar em typescript
-//Adicionar JWT
+// Desmembrar em partes menores
 
 //Rota de login
 app.post('/api/login', (req, res, next) => {
@@ -31,33 +31,7 @@ app.post('/api/login', (req, res, next) => {
     const query = await collection.find({user: req.body.user}).toArray();
     if(query[0] !== undefined){
       if(req.body.user === query[0].user && req.body.password === query[0].password){
-        //Inicio JWT
-        const header = JSON.stringify({
-          'alg': 'HS256',
-          'typ': 'JWT'
-        });
-  
-        const payload = JSON.stringify({
-          'email': req.body.user,
-          'password': req.body.password
-        });
-  
-        const base64Header = Buffer.from(header).toString('base64').replace(/=/g, '');
-        const base64Payload = Buffer.from(payload).toString('base64').replace(/=/g, '');
-        const secret = 'hash-criptografada';
-    
-        const data = base64Header + '.' + base64Payload;
-    
-        const signature = crypto
-            .createHmac('sha256', secret)
-            .update(data)
-            .digest('base64');
-    
-        const signatureUrl = signature
-            .replace(/\+/g, '-')
-            .replace(/\//g, '_')
-            .replace(/=/g, '')
-        //fim do JWT
+        const signatureUrl = autenticate(req.body.user, req.body.password);
         res.status(202).json({
           token: signatureUrl,
         });

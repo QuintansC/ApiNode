@@ -1,75 +1,66 @@
-# Recriando o Interface do Trello
+# Vaga Vórtx FullStack
 
-API em Node.JS para Tratar dados Simples
+Teste  - Show me the code
 
-<h4 align="center"> 
-	🚧  API em Node 🚀 Em construção...  🚧
-</h4>
-
-### Features
-
-- [x] Rotas simples da aplicação
-- [x] Envio de informações simples
-- [x] Conectar MongoDB
-- [ ] Receber Informações de um form
-- [ ] Tratar essas informações
-
-Indices da aplicação
-=================
-<!--ts-->
-   * [Features](#Features)
-   * [Tecnologias](#tecnologias)
-   * [Instalação](#instalação)
-   * [Como usar](#comandos)
-   * [Sobre](#Detalhes-da-aplicação)
-<!--te-->
-
-<details>
-  <summary>Telas da aplicação</summary>
-    <img src="src/images/README/home.png" width='340px' height='150px'>
-    <img src="src/images/README/home.png" width='340px' height='150px'>
-    <img src="src/images/README/home.png" width='340px' height='150px'>
-</details>
-
-
-
-## Tecnologias
-
-<br>
-Tecnologias utilizadas:<br>
-
-<a href="https://code.visualstudio.com/">![Badge](https://img.shields.io/badge/-Visual%20Studio%20Code-000000?style=for-the-badge&logo=visual-studio-code)</a>
-<a href="https://nodejs.org/en/">![Badge](https://img.shields.io/badge/-Node%20JS-1d662e?style=for-the-badge&logo=node.js)</a>
-<a href="https://www.w3schools.com/css/">![Badge](https://img.shields.io/badge/-CSS-blue?style=for-the-badge&logo=css3)</a>
-<a href="https://www.typescriptlang.org/">![Badge](https://img.shields.io/badge/-Typescript-000000?style=for-the-badge&logo=typescript)</a>
+Author: Gustavo dos Santos Quintans.
+Especialidade: Backend.
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/) 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+[Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com/), Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
 ### 🎲 Instalação
 
 ```bash
-# Clone este repositório
-$ git clone <https://github.com/QuintanC/ApiNode>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd ApiNode
+$ cd TesteVTX
 
 # Instale as dependências
 $ yarn
 
-# Execute a aplicação em modo de desenvolvimento, Executa o servidor e a aplicação juntos
-$ yarn dev
+# Execute o arquivo de servidor[Server.js]
+$ yarn start
+## Ou
+$ node server.js
 
-# Execute apenas o servidor se não usar aplicação
+# Acesse a pasta de front-end
+$ cd client
+
+# Execute o projeto front-end
 $ yarn start
 
-# O servidor inciará na porta:3000 - acesse <http://localhost:3000> e a aplicação Da api na porta:5000 -  acesse <http://localhost:5000>
+# O servidor inciará na porta:5000 - acesse <http://localhost:5000> e a aplicação front-end porta:3000 -  acesse <http://localhost:3000>
+```
+
+### Testes 
+
+```bash
+  # Acesse a raiz do projeto no terminal/cmd
+  $ cd TesteVTX
+
+  # Verifique caso a pasta node_modules ja exista ná raiz, caso não:
+  $ yarn 
+
+  # Caso contrario execute diretamente os testes
+  $ jest 
+  ## Ou
+  $ test
 ```
 ## Detalhes da aplicação  
-## `Qualquer ajuda será bem vinda!` 
+
+### '__test__'
+
+Todos os testes unitarios são feitos em um unico arquivo chamado `calcula.test.js` onde ele testa, a rota e o metodo que calcula os acrecimos adicionais ao valor
+
+
+### Src
+
+Todos os arquivos de servidor estão dentro da pasta src na raiz do projeto, com exeção do server.js para facilitar na inicialização do projeto.
 <br>
-Objetivo dessa aplicação é servir nosso aplicativo de drag and drop em todas suas funções.
+
+### Client
+
+A pasta client é referente aos arquivos necessarios para uma aplicação React completa.
+Dentro dessa pasta há também uma pasta chamada src, é onde estão os arquivos referentes as telas e consumo da api, incluindo também os estilos e as imagens utilizadas.
