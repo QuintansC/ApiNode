@@ -10,11 +10,10 @@ var http = require('http');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-const bodyParser = require('body-parser');
 
-const autenticate = require('./functions.js');
+const autenticate = require('./src/functions.js');
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(require('cors')());
 
 var server = http.createServer(app);
